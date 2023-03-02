@@ -17,7 +17,7 @@ namespace AutomationIC.Utilities
 
             var wait = new WebDriverWait(driver, new TimeSpan(0, 0, seconds));
 
-            if(locatorValue == "Xpath")
+            if(locatorValue == "XPath")
             {
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath(locatorValue)));
             }

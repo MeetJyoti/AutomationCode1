@@ -54,7 +54,7 @@ namespace AutomationIC.Tests
         [TearDown]
         public void CloseTest()
         {
-
+            driver.Close();
 
         }
 

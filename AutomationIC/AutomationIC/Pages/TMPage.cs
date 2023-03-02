@@ -21,9 +21,9 @@ namespace AutomationIC.Pages
             Wait.WaitToBeClicakble(driver, "XPath", "//*[@id=\"TimeMaterialEditForm\"]/div/div[1]/div/span[1]/span/span[2]/span", 5);
             IWebElement Dropdown = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[1]/div/span[1]/span/span[2]/span"));
             Dropdown.Click();
-            
 
 
+            Wait.WaitToBeClicakble(driver, "XPath", "//*[@id=\"TypeCode_listbox\"]/li[2]", 5);
             IWebElement Time = driver.FindElement(By.XPath("//*[@id=\"TypeCode_listbox\"]/li[2]"));
             Time.Click();
             //*[@id="TimeMaterialEditForm"]/div/div[1]/div/span[1]/span/span[1]
@@ -44,7 +44,13 @@ namespace AutomationIC.Pages
             IWebElement SaveButton = driver.FindElement(By.Id("SaveButton"));
             SaveButton.Click();
 
+            //Wait.WaitToBeClicakble(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[4]/a[4]/span", 5);
+            Thread.Sleep(2000);
+            IWebElement LastPage = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
+            LastPage.Click();
             
+
+
             //*[@id="tmsGrid"]/div[4]/a[4]/span
 
         }
@@ -53,13 +59,13 @@ namespace AutomationIC.Pages
 
         {
 
-            Wait.WaitToBeClicakble(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[4]/a[4]/span", 5);
+            Thread.Sleep(2000);
             IWebElement LastPage = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
             LastPage.Click();
            
 
-            Wait.WaitToBeClicakble(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[9]/td[5]/a[1]", 5);
-            IWebElement Editrecord = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[9]/td[5]/a[1]"));
+            Wait.WaitToBeClicakble(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[3]/td[5]/a[1]", 5);
+            IWebElement Editrecord = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[3]/td[5]/a[1]"));
             Editrecord.Click();
 
             IWebElement EditDescription = driver.FindElement(By.Id("Description"));
@@ -71,8 +77,10 @@ namespace AutomationIC.Pages
             IWebElement EditSaveButton = driver.FindElement(By.Id("SaveButton"));
             EditSaveButton.Click();
 
-
-            LastPage.Click();
+            Thread.Sleep(2000);
+            IWebElement LastPageEdit = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
+            LastPageEdit.Click();
+            
            
 
 
@@ -81,12 +89,13 @@ namespace AutomationIC.Pages
         {
 
 
-            Wait.WaitToBeClicakble(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[4]/a[4]/span", 5);
+            //Wait.WaitToBeClicakble(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[4]/a[4]/span", 5);
+            Thread.Sleep(2000);
             IWebElement LastPage = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
             LastPage.Click();
 
-            Wait.WaitToBeClicakble(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[7]/td[5]/a[2]", 5);
-            IWebElement Delete = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[7]/td[5]/a[2]"));
+            Wait.WaitToBeClicakble(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[3]/td[5]/a[2]", 5);
+            IWebElement Delete = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[3]/td[5]/a[2]"));
             Delete.Click();
 
             IAlert deleteAlert = driver.SwitchTo().Alert();
