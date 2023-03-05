@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutomationIC.Pages;
+using NUnit.Framework;
 
 namespace AutomationIC.Utilities
 {
@@ -14,5 +16,14 @@ namespace AutomationIC.Utilities
 
         public static IWebDriver driver;
 
+        [SetUp]
+        public void LoginStepsTest()
+        {
+            driver = new ChromeDriver();
+            // Login Page
+            LoginPage LoginPageObj = new LoginPage();
+            LoginPageObj.LoginActions(driver);
+
+        }
     }
 }

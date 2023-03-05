@@ -1,4 +1,5 @@
 ﻿using AutomationIC.Utilities;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -48,7 +49,12 @@ namespace AutomationIC.Pages
             Thread.Sleep(2000);
             IWebElement LastPage = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
             LastPage.Click();
-            
+
+            Thread.Sleep(2000);
+            IWebElement NewCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
+
+            Assert.That(NewCode.Text == "Knight", "Actual Code and expected code does not match");
+
 
 
             //*[@id="tmsGrid"]/div[4]/a[4]/span
@@ -64,8 +70,8 @@ namespace AutomationIC.Pages
             LastPage.Click();
            
 
-            Wait.WaitToBeClicakble(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[3]/td[5]/a[1]", 5);
-            IWebElement Editrecord = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[3]/td[5]/a[1]"));
+            Wait.WaitToBeClicakble(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[1]", 5);
+            IWebElement Editrecord = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
             Editrecord.Click();
 
             IWebElement EditDescription = driver.FindElement(By.Id("Description"));
@@ -94,8 +100,8 @@ namespace AutomationIC.Pages
             IWebElement LastPage = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
             LastPage.Click();
 
-            Wait.WaitToBeClicakble(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[3]/td[5]/a[2]", 5);
-            IWebElement Delete = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[3]/td[5]/a[2]"));
+            Wait.WaitToBeClicakble(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[2]", 5);
+            IWebElement Delete = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[2]"));
             Delete.Click();
 
             IAlert deleteAlert = driver.SwitchTo().Alert();

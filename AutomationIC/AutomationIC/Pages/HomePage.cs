@@ -10,7 +10,7 @@ namespace AutomationIC.Pages
 {
     public class HomePage
     {
-        public void HomePageActions(IWebDriver driver)
+        public void HomePageActionsTM(IWebDriver driver)
         {
             Wait.WaitToBeClicakble(driver, "XPath", "/html/body/div[3]/div/div/ul/li[5]/a", 5);
             IWebElement admindropdown = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
@@ -20,7 +20,20 @@ namespace AutomationIC.Pages
             Wait.WaitToBeClicakble(driver, "XPath", "/html/body/div[3]/div/div/ul[1]/li[5]/ul/li[3]/a", 5);
             IWebElement TimeandMaterial = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul[1]/li[5]/ul/li[3]/a"));
             TimeandMaterial.Click();
-            
+
+
+        }
+
+        public void GoToEmployeePage(IWebDriver driver)
+        {
+            Wait.WaitToBeClicakble(driver, "XPath", "/html/body/div[3]/div/div/ul/li[5]/a", 5);
+            IWebElement admindropdown = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
+            admindropdown.Click();
+
+
+            Wait.WaitToBeClicakble(driver, "XPath", "/html/body/div[3]/div/div/ul[1]/li[5]/ul/li[3]/a", 5);
+            IWebElement HomePageEmp = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[2]/a"));
+            HomePageEmp.Click();
 
 
         }

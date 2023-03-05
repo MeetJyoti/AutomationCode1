@@ -11,44 +11,43 @@ using System.Threading.Tasks;
 namespace AutomationIC.Tests
 {
     [TestFixture]
+    [Parallelizable]
     public class TM_Tests : CommonDriver
     {
-        [SetUp]
-        public void LoginStepsTest()
-        {
-             driver = new ChromeDriver();
-            // Login Page
-            LoginPage LoginPageObj = new LoginPage();
-            LoginPageObj.LoginActions(driver);
 
 
-            //Home PAge
-            HomePage homePageObj = new HomePage();
-            homePageObj.HomePageActions(driver);
+        //Page Object Initialization - Common Class  
+        HomePage homePageObj = new HomePage();
+        TMPage TMpageObj = new TMPage();
+       
 
-        }
-        [Test]
+    
+        [Test, Order(1)]
         public void CreateTMTest()
         {
-            //Create New TM object
-            TMPage TMpageObj = new TMPage();
+
+
+        //Home PAge
+        
+            homePageObj.HomePageActionsTM(driver);
+        //Create New TM object
             TMpageObj.TMrecord(driver);
 
 
         }
-        [Test]
+        [Test, Order(2)]
         public void EditTMTest()
-        { 
+        {
             //EDIT TM
-            TMPage TMpageObj = new TMPage();
+            homePageObj.HomePageActionsTM(driver);
             TMpageObj.EditButton(driver);
         }
-        [Test]
+        [Test, Order(3)]
         public void DeleteTMTest()
         {
 
             //Delete TM
-            TMPage TMpageObj = new TMPage();
+            homePageObj.HomePageActionsTM(driver);
             TMpageObj.DeleteButton(driver);
         }
         [TearDown]
