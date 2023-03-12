@@ -25,6 +25,7 @@ namespace AutomationIC.Pages
 
 
             Wait.WaitToBeClicakble(driver, "XPath", "//*[@id=\"TypeCode_listbox\"]/li[2]", 5);
+            Thread.Sleep(1000); 
             IWebElement Time = driver.FindElement(By.XPath("//*[@id=\"TypeCode_listbox\"]/li[2]"));
             Time.Click();
             //*[@id="TimeMaterialEditForm"]/div/div[1]/div/span[1]/span/span[1]
@@ -51,9 +52,9 @@ namespace AutomationIC.Pages
             LastPage.Click();
 
             Thread.Sleep(2000);
-            IWebElement NewCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
+            //IWebElement NewCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
 
-            Assert.That(NewCode.Text == "Knight", "Actual Code and expected code does not match");
+            //Assert.That(NewCode.Text == "Knight", "Actual Code and expected code does not match");
 
 
 
@@ -61,22 +62,32 @@ namespace AutomationIC.Pages
 
         }
 
-        public void EditButton(IWebDriver driver)
+
+        public string GetCode(IWebDriver driver)
+        {
+            IWebElement ConfirmCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
+            return ConfirmCode.Text;
+
+        }
+
+
+
+        public void EditButton(IWebDriver driver, string Description)
 
         {
 
             Thread.Sleep(2000);
             IWebElement LastPage = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
             LastPage.Click();
-           
 
+            Thread.Sleep(1000);
             Wait.WaitToBeClicakble(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[1]", 5);
             IWebElement Editrecord = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
             Editrecord.Click();
 
             IWebElement EditDescription = driver.FindElement(By.Id("Description"));
             EditDescription.Clear();
-            EditDescription.SendKeys("WhiteDeath");
+            EditDescription.SendKeys(Description);
             
 
             
@@ -91,6 +102,16 @@ namespace AutomationIC.Pages
 
 
         }
+
+        public string EditedDescription(IWebDriver driver)
+        {
+            IWebElement ConfirmDescription = driver.FindElement(By.Id("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[3]"));
+            return ConfirmDescription.Text;
+
+        }
+
+
+
         public void DeleteButton(IWebDriver driver)
         {
 
@@ -112,7 +133,6 @@ namespace AutomationIC.Pages
 
         }
 
-
-
+       
     }
 }

@@ -25,5 +25,11 @@ namespace AutomationIC.Utilities
             LoginPageObj.LoginActions(driver);
 
         }
+        [TearDown]
+        public void CloseTest()
+        {
+            driver.Close();
+
+        }
     }
 }

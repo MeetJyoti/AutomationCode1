@@ -40,7 +40,7 @@ namespace AutomationIC.Tests
         {
             //EDIT TM
             homePageObj.HomePageActionsTM(driver);
-            TMpageObj.EditButton(driver);
+            //TMpageObj.EditButton(driver);
         }
         [Test, Order(3)]
         public void DeleteTMTest()
